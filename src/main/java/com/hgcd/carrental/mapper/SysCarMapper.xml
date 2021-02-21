@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hgcd.carrental.mapper.SysCarMapper">
+  <resultMap id="BaseResultMap" type="com.hgcd.carrental.model.SysCar">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="carno" jdbcType="INTEGER" property="carno" />
+    <result column="cartype" jdbcType="VARCHAR" property="cartype" />
+    <result column="carbrand" jdbcType="VARCHAR" property="carbrand" />
+    <result column="models" jdbcType="VARCHAR" property="models" />
+    <result column="carcolor" jdbcType="VARCHAR" property="carcolor" />
+    <result column="maxnum" jdbcType="INTEGER" property="maxnum" />
+    <result column="km" jdbcType="VARCHAR" property="km" />
+    <result column="lasttime" jdbcType="VARCHAR" property="lasttime" />
+    <result column="venhicle" jdbcType="VARCHAR" property="venhicle" />
+    <result column="statustime" jdbcType="TIMESTAMP" property="statustime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, carno, cartype, carbrand, models, carcolor, maxnum, km, lasttime, venhicle, statustime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_car
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_car
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hgcd.carrental.model.SysCar">
+    insert into sys_car (id, carno, cartype, 
+      carbrand, models, carcolor, 
+      maxnum, km, lasttime, 
+      venhicle, statustime)
+    values (#{id,jdbcType=INTEGER}, #{carno,jdbcType=INTEGER}, #{cartype,jdbcType=VARCHAR}, 
+      #{carbrand,jdbcType=VARCHAR}, #{models,jdbcType=VARCHAR}, #{carcolor,jdbcType=VARCHAR}, 
+      #{maxnum,jdbcType=INTEGER}, #{km,jdbcType=VARCHAR}, #{lasttime,jdbcType=VARCHAR}, 
+      #{venhicle,jdbcType=VARCHAR}, #{statustime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hgcd.carrental.model.SysCar">
+    insert into sys_car
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="carno != null">
+        carno,
+      </if>
+      <if test="cartype != null">
+        cartype,
+      </if>
+      <if test="carbrand != null">
+        carbrand,
+      </if>
+      <if test="models != null">
+        models,
+      </if>
+      <if test="carcolor != null">
+        carcolor,
+      </if>
+      <if test="maxnum != null">
+        maxnum,
+      </if>
+      <if test="km != null">
+        km,
+      </if>
+      <if test="lasttime != null">
+        lasttime,
+      </if>
+      <if test="venhicle != null">
+        venhicle,
+      </if>
+      <if test="statustime != null">
+        statustime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="carno != null">
+        #{carno,jdbcType=INTEGER},
+      </if>
+      <if test="cartype != null">
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="carbrand != null">
+        #{carbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="models != null">
+        #{models,jdbcType=VARCHAR},
+      </if>
+      <if test="carcolor != null">
+        #{carcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="maxnum != null">
+        #{maxnum,jdbcType=INTEGER},
+      </if>
+      <if test="km != null">
+        #{km,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null">
+        #{lasttime,jdbcType=VARCHAR},
+      </if>
+      <if test="venhicle != null">
+        #{venhicle,jdbcType=VARCHAR},
+      </if>
+      <if test="statustime != null">
+        #{statustime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hgcd.carrental.model.SysCar">
+    update sys_car
+    <set>
+      <if test="carno != null">
+        carno = #{carno,jdbcType=INTEGER},
+      </if>
+      <if test="cartype != null">
+        cartype = #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="carbrand != null">
+        carbrand = #{carbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="models != null">
+        models = #{models,jdbcType=VARCHAR},
+      </if>
+      <if test="carcolor != null">
+        carcolor = #{carcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="maxnum != null">
+        maxnum = #{maxnum,jdbcType=INTEGER},
+      </if>
+      <if test="km != null">
+        km = #{km,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null">
+        lasttime = #{lasttime,jdbcType=VARCHAR},
+      </if>
+      <if test="venhicle != null">
+        venhicle = #{venhicle,jdbcType=VARCHAR},
+      </if>
+      <if test="statustime != null">
+        statustime = #{statustime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hgcd.carrental.model.SysCar">
+    update sys_car
+    set carno = #{carno,jdbcType=INTEGER},
+      cartype = #{cartype,jdbcType=VARCHAR},
+      carbrand = #{carbrand,jdbcType=VARCHAR},
+      models = #{models,jdbcType=VARCHAR},
+      carcolor = #{carcolor,jdbcType=VARCHAR},
+      maxnum = #{maxnum,jdbcType=INTEGER},
+      km = #{km,jdbcType=VARCHAR},
+      lasttime = #{lasttime,jdbcType=VARCHAR},
+      venhicle = #{venhicle,jdbcType=VARCHAR},
+      statustime = #{statustime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

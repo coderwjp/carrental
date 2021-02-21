@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hgcd.carrental.mapper.BizCarMapper">
+  <resultMap id="BaseResultMap" type="com.hgcd.carrental.model.BizCar">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="carid" jdbcType="INTEGER" property="carid" />
+    <result column="carno" jdbcType="VARCHAR" property="carno" />
+    <result column="cartype" jdbcType="VARCHAR" property="cartype" />
+    <result column="transportpeople" jdbcType="VARCHAR" property="transportpeople" />
+    <result column="transportunit" jdbcType="VARCHAR" property="transportunit" />
+    <result column="transportphone" jdbcType="VARCHAR" property="transportphone" />
+    <result column="stime" jdbcType="TIMESTAMP" property="stime" />
+    <result column="etime" jdbcType="TIMESTAMP" property="etime" />
+    <result column="waiting" jdbcType="VARCHAR" property="waiting" />
+    <result column="destination" jdbcType="VARCHAR" property="destination" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="operater" jdbcType="VARCHAR" property="operater" />
+    <result column="optime" jdbcType="TIMESTAMP" property="optime" />
+    <result column="back1" jdbcType="VARCHAR" property="back1" />
+    <result column="back2" jdbcType="VARCHAR" property="back2" />
+    <result column="back3" jdbcType="VARCHAR" property="back3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userid, username, carid, carno, cartype, transportpeople, transportunit, transportphone, 
+    stime, etime, waiting, destination, note, status, operater, optime, back1, back2, 
+    back3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from biz_car
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from biz_car
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hgcd.carrental.model.BizCar">
+    insert into biz_car (id, userid, username, 
+      carid, carno, cartype, 
+      transportpeople, transportunit, transportphone, 
+      stime, etime, waiting, 
+      destination, note, status, 
+      operater, optime, back1, 
+      back2, back3)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{carid,jdbcType=INTEGER}, #{carno,jdbcType=VARCHAR}, #{cartype,jdbcType=VARCHAR}, 
+      #{transportpeople,jdbcType=VARCHAR}, #{transportunit,jdbcType=VARCHAR}, #{transportphone,jdbcType=VARCHAR}, 
+      #{stime,jdbcType=TIMESTAMP}, #{etime,jdbcType=TIMESTAMP}, #{waiting,jdbcType=VARCHAR}, 
+      #{destination,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{operater,jdbcType=VARCHAR}, #{optime,jdbcType=TIMESTAMP}, #{back1,jdbcType=VARCHAR}, 
+      #{back2,jdbcType=VARCHAR}, #{back3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hgcd.carrental.model.BizCar">
+    insert into biz_car
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="carid != null">
+        carid,
+      </if>
+      <if test="carno != null">
+        carno,
+      </if>
+      <if test="cartype != null">
+        cartype,
+      </if>
+      <if test="transportpeople != null">
+        transportpeople,
+      </if>
+      <if test="transportunit != null">
+        transportunit,
+      </if>
+      <if test="transportphone != null">
+        transportphone,
+      </if>
+      <if test="stime != null">
+        stime,
+      </if>
+      <if test="etime != null">
+        etime,
+      </if>
+      <if test="waiting != null">
+        waiting,
+      </if>
+      <if test="destination != null">
+        destination,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="operater != null">
+        operater,
+      </if>
+      <if test="optime != null">
+        optime,
+      </if>
+      <if test="back1 != null">
+        back1,
+      </if>
+      <if test="back2 != null">
+        back2,
+      </if>
+      <if test="back3 != null">
+        back3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null">
+        #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="carno != null">
+        #{carno,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="transportpeople != null">
+        #{transportpeople,jdbcType=VARCHAR},
+      </if>
+      <if test="transportunit != null">
+        #{transportunit,jdbcType=VARCHAR},
+      </if>
+      <if test="transportphone != null">
+        #{transportphone,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="waiting != null">
+        #{waiting,jdbcType=VARCHAR},
+      </if>
+      <if test="destination != null">
+        #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="operater != null">
+        #{operater,jdbcType=VARCHAR},
+      </if>
+      <if test="optime != null">
+        #{optime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="back1 != null">
+        #{back1,jdbcType=VARCHAR},
+      </if>
+      <if test="back2 != null">
+        #{back2,jdbcType=VARCHAR},
+      </if>
+      <if test="back3 != null">
+        #{back3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hgcd.carrental.model.BizCar">
+    update biz_car
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null">
+        carid = #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="carno != null">
+        carno = #{carno,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null">
+        cartype = #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="transportpeople != null">
+        transportpeople = #{transportpeople,jdbcType=VARCHAR},
+      </if>
+      <if test="transportunit != null">
+        transportunit = #{transportunit,jdbcType=VARCHAR},
+      </if>
+      <if test="transportphone != null">
+        transportphone = #{transportphone,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        stime = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etime != null">
+        etime = #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="waiting != null">
+        waiting = #{waiting,jdbcType=VARCHAR},
+      </if>
+      <if test="destination != null">
+        destination = #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="operater != null">
+        operater = #{operater,jdbcType=VARCHAR},
+      </if>
+      <if test="optime != null">
+        optime = #{optime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="back1 != null">
+        back1 = #{back1,jdbcType=VARCHAR},
+      </if>
+      <if test="back2 != null">
+        back2 = #{back2,jdbcType=VARCHAR},
+      </if>
+      <if test="back3 != null">
+        back3 = #{back3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hgcd.carrental.model.BizCar">
+    update biz_car
+    set userid = #{userid,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      carid = #{carid,jdbcType=INTEGER},
+      carno = #{carno,jdbcType=VARCHAR},
+      cartype = #{cartype,jdbcType=VARCHAR},
+      transportpeople = #{transportpeople,jdbcType=VARCHAR},
+      transportunit = #{transportunit,jdbcType=VARCHAR},
+      transportphone = #{transportphone,jdbcType=VARCHAR},
+      stime = #{stime,jdbcType=TIMESTAMP},
+      etime = #{etime,jdbcType=TIMESTAMP},
+      waiting = #{waiting,jdbcType=VARCHAR},
+      destination = #{destination,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      operater = #{operater,jdbcType=VARCHAR},
+      optime = #{optime,jdbcType=TIMESTAMP},
+      back1 = #{back1,jdbcType=VARCHAR},
+      back2 = #{back2,jdbcType=VARCHAR},
+      back3 = #{back3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
